@@ -1,0 +1,11 @@
+{
+  "sort": "Default",
+  "-created": "Created (Latest)",
+  "created": "Created (Oldest)",
+  "-modified": "Modified (Latest)",
+  "modified": "Modified (Oldest)",
+  "title": "Title (A-Z)",
+  "-title": "Title (Z-A)",
+  "-phits": "Views (Up)",
+  "phits": "Views (Down)"
+}

@@ -1,0 +1,265 @@
+/**
+ *  add .tm-flex-reverse class to .uk-grid
+ *  to reverse direction of child items
+ */
+.tm-flex-reverse {
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
+}
+
+@media(max-width: @breakpoint-large) {
+  .tm-flex-reverse\@l {
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+  }
+}
+
+
+@media(max-width: @breakpoint-medium) {
+  .tm-flex-reverse\@m {
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+  }
+}
+
+@media(max-width: @breakpoint-small) {
+  .tm-flex-reverse\@s {
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+  }
+}
+
+// Backgrounds & Colors
+// ========================================================================
+
+/**
+ *  This will force dark text color on
+ *  .uk-light elements
+ *  Just add .tm-keep-color class to .uk-light elements
+ */
+.uk-light {
+
+  .tm-keep-color {
+    .keep-color-mixin();
+  }
+
+}
+
+.tm-bg-remove {
+  background: none !important;
+}
+
+// Links
+// ========================================================================
+.tm-link-none {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.tm-link-reset {
+	color: @global-emphasis-color;
+  &:focus,
+  &:active,
+	&:hover {
+    color: @global-emphasis-color !important;
+		text-decoration: none;
+	}
+}
+
+.tm-link-normal a,
+.tm-link-normal {
+    color: @global-emphasis-color;
+  &:focus,
+  &:active,
+	&:hover {
+		text-decoration: none;
+    color: @global-primary-background;
+	}
+}
+
+.uk-light {
+
+  .tm-link-reset a:focus,
+  .tm-link-reset a:active,
+  .tm-link-reset a:hover,
+  .tm-link-reset:focus,
+  .tm-link-reset:active,
+  .tm-link-reset:hover {
+    color: @global-inverse-color;
+  }
+
+  .tm-link-normal a,
+  .tm-link-normal {
+    color: @inverse-global-color;
+    &:focus,
+    &:active,
+    &:hover {
+      color: @global-inverse-color;
+    }
+  }
+
+  .uk-text-muted {
+    .tm-link-normal a,
+    .tm-link-normal {
+      color: @inverse-global-muted-color;
+      &:focus,
+      &:active,
+      &:hover {
+        color: @global-inverse-color;
+      }
+    }
+  }
+
+}
+
+// Media
+// ========================================================================
+
+.tm-object-fit {
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover;
+}
+
+// Text
+// ========================================================================
+
+.tm-font {
+  font-family: @base-heading-font-family;
+}
+
+.tm-font-base {
+  font-family: @global-font-family;
+}
+
+.tm-font-hand {
+  font-family: @tm-font-hand;
+}
+
+.tm-text-deco-none {
+  text-decoration: none !important;
+}
+
+.tm-text-white {
+  color: white;
+}
+
+// List
+// ========================================================================
+
+.tm-list-reset {
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+
+.tm-line-height-none {
+  line-height: 0 !important;
+}
+
+// Border
+// ========================================================================
+.tm-border-radius {
+  border-radius: @tm-border-radius;
+}
+
+.tm-border {
+  border: 1px solid @global-border;
+}
+
+.tm-border-left {
+  border-left: 1px solid @global-border;
+}
+
+.tm-border-right {
+  border-right: 1px solid @global-border;
+}
+
+.tm-border-top {
+  border-top: 1px solid @global-border;
+}
+
+.tm-border-bottom {
+  border-bottom: 1px solid @global-border;
+}
+
+.tm-border-2x {border-width: 2px !important;}
+.tm-border-3x {border-width: 3px !important;}
+.tm-border-5x {border-width: 3px !important;}
+
+.tm-border-primary {
+  border-color: @global-primary-background;
+}
+
+.tm-border-secondary {
+  border-color: @global-secondary-background;
+}
+
+.uk-light {
+  [class*=tm-border] {
+    border-color: fade(white, 30%) !important;
+  }
+}
+
+
+// Animation
+// ========================================================================
+.tm-animation-03 {
+  animation-duration: 0.3s !important;
+}
+
+// z-index
+// ========================================================================
+.z-index {z-index: 1;}
+.z-index-2 {z-index: 2;}
+.z-index-9 {z-index: 9;}
+.z-index-99 {z-index: 99;}
+.z-index-999 {z-index: 999;}
+
+
+// Mobile & Tablet
+// ========================================================================
+
+@media(max-width: @breakpoint-small) {
+
+  .tm-no-space\@s {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .tm-no-margin\@s {
+    margin: 0 !important;
+  }
+
+  .tm-no-margin-top\@s {
+    margin: 0 !important;
+  }
+
+  .tm-no-margin-bottom\@s {
+    margin: 0 !important;
+  }
+
+}
+
+@media(max-width: @breakpoint-medium) {
+
+  .tm-no-space\@m {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .tm-no-margin\@m {
+    margin: 0 !important;
+  }
+
+  .tm-no-margin-top\@m {
+    margin: 0 !important;
+  }
+
+  .tm-no-margin-bottom\@m {
+    margin: 0 !important;
+  }
+
+}

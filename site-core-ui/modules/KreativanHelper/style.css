@@ -1,0 +1,273 @@
+/* @import "./inter-font/inter.css"; */
+/*@import url('https://fonts.googleapis.com/css?family=Barlow:wght@400;600&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+  --muted-color: #777;
+  --box-shadow: 0 2px 5px -1px rgba(0,0,0,.08);
+  --border-color: #d9e1ea;
+  --padding: 20px;
+  --font: 'Inter', sans-serif
+}
+
+html, body {
+  background: #f5f5f5;
+  font-size:16px;
+}
+
+.InputfieldHeader,
+.uk-navbar-nav>li>a,
+.uk-tab>*>a {
+  font-size:16px;
+}
+
+html, body,
+.uk-drop *:not(i),
+.uk-navbar-nav>li>a,
+.uk-h1,.uk-h2,.uk-h3,.uk-h4, .uk-h5, .uk-h6,
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font);
+}
+
+.InputfieldContent > .description {
+  font-size:16px !important;
+}
+
+#PageListContainer {
+    padding:var(--padding);
+    background: #fff;
+    border:1px solid var(--border-color);
+    /*box-shadow:var(--box-shadow);*/
+}
+
+#ProcessPageEdit #PageListContainer  {
+    box-shadow: none;
+}
+
+#ProcessPageEditContent.Inputfield {
+    background: none;
+}
+
+#pw-content-body > .uk-description-list,
+.pw-table-responsive:not(.pw-table-resizable),
+#ProcessListerResults {
+    background: #fff;
+    margin-bottom:20px;
+    padding:var(--padding);
+    border:1px solid var(--border-color);
+    /*box-shadow:var(--box-shadow);*/
+}
+
+.Inputfields .pw-table-responsive,
+[id^=wrap_Inputfield_profile] .pw-table-responsive,
+#ProcessTemplateList .pw-table-responsive,
+#ProcessFieldList .pw-table-responsive {
+    padding:0;
+    border: none;
+    box-shadow:none;
+}
+
+.pw-dropdown-menu .uk-active.ui-menu-item >a {
+  background: #e2e9ef !important;
+}
+
+/* ===========================================================
+    Login
+=========================================================== */
+.ProcessLogin #ProcessLoginForm {
+    width:350px;
+    background: #fff;
+    padding:25px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+.ProcessLogin #ProcessLoginForm #wrap_Inputfield_login_submit,
+.ProcessLogin #ProcessLoginForm #wrap_login_name,
+.ProcessLogin #ProcessLoginForm #wrap_login_pass {
+    width:100%;
+}
+
+.ProcessLogin #pw-mastheads .pw-container {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ProcessLogin #pw-mastheads .pw-logo-link {
+    display:inline-block;
+    width:350px;
+    text-align:center;
+}
+
+/* ----------------------------------------------------------------
+  UIkit
+------------------------------------------------------------------- */
+.uk-label {
+  font-size:13px;
+}
+
+.uk-text-small,
+.uk-form-label:not(.InputfieldHeader) {
+  font-size: 0.9rem;
+}
+
+
+/* =================================================================
+  Custom Style
+==================================================================== */
+
+.ivm-bg-white {
+  background: #fff;
+}
+
+.ivm-border {
+  border: 1px solid var(--border-color);
+}
+.ivm-border-bottom { border-bottom: 1px solid var(--border-color);}
+.ivm-border-top { border-top: 1px solid var(--border-color);}
+.ivm-border-left { border-left: 1px solid var(--border-color);}
+.ivm-border-right { border-right: 1px solid var(--border-color);}
+
+.ivm-border-remove-bottom { border-bottom: none;}
+.ivm-border-remove-top { border-top: none;}
+.ivm-border-remove-left { border-left: none;}
+.ivm-border-remove-right { border-right: none;}
+
+.ivm-box-shadow:not(.uk-card-hover),
+.uk-box-shadow-small:not(.uk-card-hover) {
+    box-shadow: 0 2px 5px -1px rgba(0,0,0,.08) !important;
+}
+
+.ivm-muted,
+.uk-background-muted {
+  background: #F3F6F9;
+}
+
+.ivm-border-dashed {
+    border-style: dashed;
+}
+hr.ivm-border-dashed {
+    border-color: #ccc;
+}
+
+.ivm-link-reset:hover {
+  text-decoration: none !important;
+}
+
+.uk-tab + .ivm-border + .ivm-border,
+.uk-tab + .ivm-border {
+  border-top:0;
+  margin-left:-1px;
+}
+
+/* ----------------------------------------------------------------
+  Drop
+------------------------------------------------------------------- */
+.uk-drop > div {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.13);
+}
+.uk-drop-right-center:after {
+  content:"";
+  display: block;
+	right: 100%;
+	top:50%;
+  margin-top:-12px;
+	border: solid transparent;
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: transparent;
+	border-right-color: white;
+	border-width: 10px;
+}
+
+.uk-drop-right-center:before {
+  content:"";
+  display: block;
+	right: 100%;
+  top:50%;
+  margin-top:-14px;
+	border: solid transparent;
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: transparent;
+	border-right-color: #eee;
+	border-width: 12px;
+}
+
+.uk-drop-left-center:after {
+  content:"";
+  display: block;
+	left: 100%;
+	top:50%;
+  margin-top:-12px;
+	border: solid transparent;
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: transparent;
+	border-left-color: white;
+	border-width: 10px;
+}
+
+.uk-drop-left-center:before {
+  content:"";
+  display: block;
+	left: 100%;
+  top:50%;
+  margin-top:-14px;
+	border: solid transparent;
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: transparent;
+	border-left-color: #eee;
+	border-width: 12px;
+}
+
+
+/* ----------------------------------------------------------------
+  Table
+------------------------------------------------------------------- */
+
+.uk-table-striped tbody tr:nth-of-type(odd),
+.uk-table-striped>tr:nth-of-type(odd) {
+  background: #f8f8f8;
+}
+
+
+/* ----------------------------------------------------------------
+  Notification
+------------------------------------------------------------------- */
+.uk-notification-message {
+  border-radius:4px;
+}
+
+.uk-notification-message .uk-close {
+  color: white;
+}
+
+.uk-notification-message-primary {
+  background: #3eb998;
+  color: white;
+}
+.uk-notification-message-success {
+  background: #25b14a;
+  color: white;
+}
+.uk-notification-message-warning {
+  background: #FFD15E;
+  color: #222;
+}
+.uk-notification-message-warning .uk-close  {
+  color: #222;
+}
+.uk-notification-message-danger {
+  background: #e83561;
+  color: white;
+}

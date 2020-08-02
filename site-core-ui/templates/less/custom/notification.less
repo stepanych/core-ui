@@ -1,0 +1,56 @@
+@notification-position:                               15px;
+@notification-z-index:                                @global-z-index + 40;
+@notification-width:                                  350px;
+
+@notification-message-margin-top:                     10px;
+@notification-message-padding:                        @global-small-gutter;
+@notification-message-background:                     white;
+@notification-message-color:                          @global-emphasis-color;
+@notification-message-font-size:                      @global-medium-font-size;
+@notification-message-line-height:                    1.4;
+
+@notification-close-top:                              @notification-message-padding + 5px;
+@notification-close-right:                            @notification-message-padding;
+
+@notification-message-primary-color:                  white;
+@notification-message-success-color:                  white;
+@notification-message-warning-color:                  white;
+@notification-message-danger-color:                   white;
+
+@tm-notification-primary-bg:                          @global-primary-background;
+@tm-notification-success-bg:                          @global-success-background;
+@tm-notification-warning-bg:                          @global-warning-background;
+@tm-notification-danger-bg:                           @global-danger-background;
+@tm-notification-close-color:                         white;
+
+/* ========================================================================
+  Component: Notification
+========================================================================== */
+
+.uk-notification-message {
+
+  box-shadow:  0 4px 13px 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: @tm-border-radius;
+
+  &.uk-notification-message-primary {
+    background: @tm-notification-primary-bg;
+  }
+
+  &.uk-notification-message-success {
+    background: @tm-notification-success-bg;
+  }
+
+  &.uk-notification-message-warning {
+    background: @tm-notification-warning-bg;
+  }
+
+  &.uk-notification-message-danger {
+    background: @tm-notification-danger-bg;
+  }
+
+  .uk-notification-close {
+    color: @tm-notification-close-color;
+  }
+
+}

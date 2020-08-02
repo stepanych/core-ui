@@ -1,0 +1,19 @@
+{
+	"none": "No Animation",
+	"uk-animation-fade": "Fade",
+	"uk-animation-scale-up": "Scale Up",
+	"uk-animation-scale-down": "Scale Down",
+	"uk-animation-shake": "Shake",
+	"uk-animation-slide-top": "Slide Top",
+	"uk-animation-slide-top-small": "Slide Top Small",
+	"uk-animation-slide-top-medium": "Slide Top Medium",
+	"uk-animation-slide-bottom": "Slide Bottom",
+	"uk-animation-slide-bottom-small": "Slide Bottom Small",
+	"uk-animation-slide-bottom-medium": "Slide Bottom Medium",
+	"uk-animation-slide-left": "Slide Left",
+	"uk-animation-slide-left-small": "Slide Left Small",
+	"uk-animation-slide-left-medium": "Slide Left Medium",
+	"uk-animation-slide-right": "Slide Right",
+	"uk-animation-slide-right-small": "Slide Right Small",
+	"uk-animation-slide-right-medium": "Slide Right Medium"
+}

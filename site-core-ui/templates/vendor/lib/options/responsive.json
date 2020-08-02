@@ -1,0 +1,7 @@
+{
+  "all": "All",
+  "uk-visible@l": "Desktop Only",
+  "uk-visible@m": "Desktop + Tablet",
+  "uk-hidden@l": "Tablet + Mobile",
+  "uk-hidden@m": "Mobile Only"
+}

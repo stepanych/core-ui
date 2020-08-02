@@ -1,0 +1,41 @@
+@tm-mobile-header-height:         65px;
+@tm-mobile-header-bg:             @tm-header-bg;
+@tm-mobile-logo-height:           28px;
+
+/* =================================================================
+  Responsive
+==================================================================== */
+
+#mobile-header {
+
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 999;
+
+  height: @tm-mobile-header-height;
+  background: @tm-mobile-header-bg;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+
+  .mobile-menu-button {
+    padding: 0 20px;
+    color: @global-emphasis-color;
+  }
+
+  .mobile-logo {
+    svg,
+    img {
+      max-height: @tm-mobile-logo-height;
+      color: @global-emphasis-color;
+      width: auto !important;
+    }
+  }
+
+}
+
+@media(max-width: @breakpoint-large) {
+  #mobile-header + #wrapper {
+    margin-top:@tm-mobile-header-height;
+  }
+}

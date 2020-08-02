@@ -1,0 +1,73 @@
+@section-default-background:                      @global-background;
+
+@section-muted-background:                        @global-muted-background;
+
+@section-primary-background:                      @global-primary-background;
+@section-primary-color-mode:                      @tm-primary-color-mode;
+
+@section-secondary-background:                    @global-secondary-background;
+@section-secondary-color-mode:                    @tm-secondary-color-mode;
+
+// Tile
+@tile-primary-color-mode:                         @tm-primary-color-mode;
+@tile-secondary-color-mode:                       @tm-secondary-color-mode;
+
+/* =================================================================
+  Backgrounds
+==================================================================== */
+
+// Dark
+.tm-bg-dark,
+.uk-background-dark,
+.uk-section-dark {
+  background: @tm-bg-dark;
+  &:not(.uk-preserve-color):extend(.uk-light all) when (@tm-dark-color-mode = light) {}
+  &:not(.uk-preserve-color):extend(.uk-dark all) when (@tm-dark-color-mode = dark) {}
+}
+
+// Muted Color mode
+.tm-bg-muted,
+.uk-background-muted,
+.uk-section-muted {
+  background: @global-muted-background;
+  &:not(.uk-preserve-color):extend(.uk-light all) when (@tm-muted-color-mode = light) {}
+  &:not(.uk-preserve-color):extend(.uk-dark all) when (@tm-muted-color-mode = dark) {}
+}
+
+.tm-bg-primary {
+  background: @global-primary-background;
+  &:not(.uk-preserve-color):extend(.uk-light all) when (@tm-primary-color-mode = light) {}
+  &:not(.uk-preserve-color):extend(.uk-dark all) when (@tm-primary-color-mode = dark) {}
+}
+
+.tm-bg-secondary {
+  background: @global-secondary-background;
+  &:not(.uk-preserve-color):extend(.uk-light all) when (@tm-secondary-color-mode = light) {}
+  &:not(.uk-preserve-color):extend(.uk-dark all) when (@tm-secondary-color-mode = dark) {}
+}
+
+// white-bg
+.tm-bg-white {
+  background: white;
+  .uk-dark();
+}
+
+.uk-light {
+
+  .tm-bg-white {
+    .keep-color-mixin();
+  }
+
+}
+
+.tm-bg-success {
+  background: @global-success-background;
+}
+
+.tm-bg-warning {
+  background: @global-warning-background;
+}
+
+.tm-bg-danger {
+  background: @global-danger-background;
+}

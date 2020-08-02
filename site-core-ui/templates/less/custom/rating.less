@@ -1,0 +1,43 @@
+@tm-rating-color:           #F6B900;
+/* =================================================================
+  Rating
+==================================================================== */
+.tm-rating {
+
+  i {
+    margin-right: 5px;
+    color: @tm-rating-color;
+  }
+
+}
+
+.tm-select-rating {
+
+  &:hover {
+    cursor:pointer;
+  }
+
+  span {
+    margin-left: 3px;
+    color: @global-muted-color;
+  }
+
+  span.active {
+    color: @tm-rating-color;
+  }
+
+  span.hover {
+    color: @tm-rating-color;
+    cursor:pointer;
+  }
+
+  span.active:before {
+    font-weight: 900;
+  }
+
+  &.error {
+    border: 1px solid @global-danger-background;
+    padding: 5px;
+  }
+
+}
