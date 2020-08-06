@@ -215,7 +215,7 @@ class KreativanForms extends WireData implements Module {
       $form .= $this->alert($alert_type);
 
       // render fields
-      $form .= "<div class='uk-grid-$grid_size' uk-grid>";
+      $form .= "<div class='uk-grid uk-grid-$grid_size' uk-grid>";
 
         foreach($fields as $key => $value) {
           $x = $i++;
