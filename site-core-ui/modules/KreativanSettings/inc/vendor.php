@@ -24,16 +24,15 @@ if($this_module->vendor("developer") != "") {
   $f->attr('name', 'developer');
   $f->label = 'Developer';
   $f->value = $this_module->vendor("developer");
-  $f->columnWidth = "50%";
+  $f->columnWidth = "100%";
   $f->collapsed = 7;
   $form->add($f);
 
-  $f = $this->wire('modules')->get("InputfieldText");
+  $f = $this->wire('modules')->get("InputfieldMarkup");
   $f->attr('name', 'website');
   $f->label = 'Website';
-  $f->value = $this_module->vendor("website");
-  $f->columnWidth = "50%";
-  $f->collapsed = 7;
+  $f->value = "<a href='{$this_module->vendor('website')}'>{$this_module->vendor('website')}</a>";
+  $f->columnWidth = "100%";
   $form->add($f);
 }
 
@@ -41,22 +40,6 @@ $f = $this->wire('modules')->get("InputfieldText");
 $f->attr('name', 'cms');
 $f->label = 'CMS';
 $f->value = $this_module->vendor("cms");
-$f->columnWidth = "100%";
-$f->collapsed = 7;
-$form->add($f);
-
-$f = $this->wire('modules')->get("InputfieldText");
-$f->attr('name', 'framework');
-$f->label = 'Framework';
-$f->value = $this_module->vendor("framework");
-$f->columnWidth = "100%";
-$f->collapsed = 7;
-$form->add($f);
-
-$f = $this->wire('modules')->get("InputfieldText");
-$f->attr('name', 'version');
-$f->label = 'Version';
-$f->value = $this_module->vendor("version");
 $f->columnWidth = "100%";
 $f->collapsed = 7;
 $form->add($f);

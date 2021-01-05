@@ -21,6 +21,22 @@ class Translator extends Process implements WirePageEditor {
     $this->folder = $this->config->paths->siteModules . $this->className() . "/";
     $this->lngFolder = $this->config->paths->siteModules . $this->className() . "/lng/";
     $this->exclude = ["errors", "less", "lib"];
+    $this->encode_arr = [
+      "." => "|_d_|",
+      ":" => "|_dd_|",
+      "!" => "|_e_|",
+      "?" => "|_q_|",
+      "," => "|_c_|",
+      "'" => "|_s_|",
+      '"' => "|_ds_|",
+      "%" => "|_prc_|",
+      "(" => "|_p1_|",
+      ")" => "|_p2_|",
+      "{" => "|_pl1_|",
+      "}" => "|_pl2_|",
+      "[" => "|_pxl1_|",
+      "]" => "|_pxl2_|",
+    ];
   }
 
   public function init() {
@@ -29,7 +45,7 @@ class Translator extends Process implements WirePageEditor {
     if($this->input->scan) {
       $this->scan($this->config->paths->templates);
       $this->message("Scan complete");
-      $this->session->redirect("./");
+      $this->session->redirect("./?lang={$this->input->get->lang}");
     }
 
     if($this->input->get->show_empty) {
@@ -49,7 +65,7 @@ class Translator extends Process implements WirePageEditor {
       $array = [];
       foreach($data as $key => $value) {
         if($key != "submit_save" && $value != "") {
-          $key = str_replace("___"," ", $key);
+          $key = $this->decode($key);
           $array[$key] = $value;
         }
       }
@@ -74,6 +90,24 @@ class Translator extends Process implements WirePageEditor {
     Methods
   ------------------------------------------------------------------- */
 
+  // Encode string to the valid field_name
+  public function encode($string) {
+    $field_name = str_replace(" ", "|_|", $string);
+    foreach($this->encode_arr as $key => $value) {
+      $field_name = str_replace("$key", "$value", $field_name);
+    }
+    return $field_name;
+  }
+
+  // decode field name back to the string
+  public function decode($string) {
+    $field_name = str_replace("|_|", " ", $string);
+    foreach($this->encode_arr as $key => $value) {
+      $field_name = str_replace("$value", "$key", $field_name);
+    }
+    return $field_name;
+  }
+
   /**
    *  Get Translations Array
    *  @param $lang_name - current active language name: $user->language->name;
@@ -82,8 +116,12 @@ class Translator extends Process implements WirePageEditor {
    */
   public function array($lang_name = "default") {
 
-    // get language json by $lang_name
-    $json = file_get_contents($this->lngFolder.$lang_name.".json");
+    // if json translation file doesnt exits return empty array
+    $json_file = $this->lngFolder.$lang_name.".json";
+    if(!file_exists($json_file)) return [];
+
+    // get language json
+    $json = file_get_contents($json_file);
     $array = json_decode($json, true);
 
     $custom_strings_array = $this->getCustomStringArray($lang_name);

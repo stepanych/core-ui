@@ -15,6 +15,7 @@ include_once("./vendor/helpers/cms.php");
 include_once("./vendor/helpers/fields.php");
 include_once("./vendor/helpers/render.php");
 include_once("./vendor/helpers/media.php");
+include_once("./vendor/helpers/date-time.php");
 
 $helper = $modules->get("KreativanHelper");
 $settings = $modules->get("KreativanSettings");
@@ -26,6 +27,7 @@ $settings = $modules->get("KreativanSettings");
  */
 setting([
   "lang" => $settings->default_lang,
+  "isMultiLang" => $helper->isMultiLang(),
 ]);
 
 //

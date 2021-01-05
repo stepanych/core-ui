@@ -24,6 +24,23 @@ class KreativanHelper extends WireData implements Module {
     $this->module_url = $this->config->urls->siteModules.$this->className();
   }
 
+  public function ready() {
+
+    // Register $helper api var
+    $this->wire('helper', $this, true);
+
+    // var => data
+    $vars = [
+      "settings" => $this->modules->get("KreativanSettings"),
+    ];
+
+    // Register other vars
+    foreach($vars as $key => $value) {
+      $this->wire($key, $value, true);
+    }
+
+  }
+
   public function init() {
 
     if($this->isAdminPage()) {

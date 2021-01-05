@@ -10,7 +10,7 @@ if ($input->post->test_ajax) {
     "status" => "success",
     "message" => "Ajax test is OK",
     "url" => $pages->get("template=ajax")->httpUrl,
-    "file" => "/vendor/ajax/test.php",
+    "file" => "/ajax/test.php",
   ];
 
   header('Content-type: application/json');

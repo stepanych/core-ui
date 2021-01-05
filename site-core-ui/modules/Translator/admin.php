@@ -41,7 +41,7 @@ if($this->user->hasPermission('translator')) {
 
   if($this_module->getStringsArray()) {
     foreach($this_module->getStringsArray() as $key => $value) {
-      $field_name = str_replace(" ", "___", $key);
+      $field_name = $this_module->encode($key);
       $f = $this->modules->get("InputfieldText");
       $f->attr('name', $field_name);
       $f->label = "$key";
@@ -63,7 +63,7 @@ if($this->user->hasPermission('translator')) {
 } else {
 
   $this->error("You dont have permission to access this page");
-  
+
 }
 
 ?>

@@ -11,7 +11,7 @@
     <link rel="icon" href="<?= favicon("16") ?>" type="image/png" sizes="16x16">
   <?php endif;?>
   <?php if(!$config->debug && favicon("32")) :?>
-    <link rel="icon" href="<?= favicon("16") ?>" type="image/png" sizes="32x32">
+    <link rel="icon" href="<?= favicon("32") ?>" type="image/png" sizes="32x32">
   <?php endif;?>
   <?php if(!$config->debug && favicon("apple")) :?>
     <link rel="apple-touch-icon" href="<?= favicon("apple") ?>">

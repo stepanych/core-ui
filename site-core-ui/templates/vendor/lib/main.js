@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
   setActiveParent();
   scrollToTop();
-  ukToggleAttr();
+  // ukToggleAttr();
 });
 
 // Set active classes for element parents

@@ -1,13 +1,11 @@
 <?php namespace ProcessWire;
 /**
- *  Uikit gallery markup
+ *  Uikit Gallery markup
  *
- *  @var PageImages $images
- *
+ *  @var PageImages $images - eg: $page->images
  *  @var string $items_per_row uikit grid class expand/1-4 etc...
  *  @var string $grid  uk-grid-small/uk-grid-large/uk-grid-collapse
  *  @var string $animation slide|fade|scale
- *
  *  @var int $width
  *  @var int $height
 */

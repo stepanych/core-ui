@@ -13,12 +13,7 @@ function loadCSS($css) {
 // Include file relative to the templates folder
 function render($file_path, $vars = []) {
   $full_file_path = wire("config")->paths->templates . $file_path;
-  $global_vars = [
-    "helper" => wire("modules")->get("KreativanHelper"),
-    "settings" => wire("modules")->get("KreativanSettings"),
-  ];
-  $all_vars = array_merge($global_vars, $vars);
-  return wire("files")->include($full_file_path, $all_vars);
+  return wire("files")->include($full_file_path, $vars);
 }
 
 /**

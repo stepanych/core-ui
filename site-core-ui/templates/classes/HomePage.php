@@ -16,7 +16,7 @@ class HomePage extends Page {
 
   // use: echo $page->whoAreYou();
   public function whoAreYou() {
-    return "I'm BLOK UI!";
+    return "I'm CORE UI!";
   }
 
   public function getMeta() {

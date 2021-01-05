@@ -40,7 +40,7 @@ $config->advanced = true;
 $config->prependTemplateFile = '_init.php';
 $config->useFunctionsAPI = true;
 $config->defaultAdminTheme = 'AdminThemeUikit';
-$config->tableSalt = '6fc58999a484f09b244fe850bf180ed61f223ec8';
+$config->tableSalt = 'bb9ff1d57efc9877b4159c5286aac038300e66d3'; 
 
 
 /*** INSTALLER CONFIG ********************************************************************/

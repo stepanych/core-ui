@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.27.0] - 2020-11-18
+
+### Added
+- Page ID and name made available as indexed field options in module configuration.
+
+### Changed
+- Various changes to metadata processing: better support for nested data structures and better support for finding results based on things such as page ref values.
+
+### Fixed
+- Fixed an issue where file/image fields could sometimes return singular value, resulting in errors during indexing.
+
+## [0.26.0] - 2020-08-27
+
+### Changed
+- SearchEngine::initOnce() is now a public method just in case that the module needs to be initialized from the outside.
+
+## [0.25.2] - 2020-08-13
+
+### Fixed
+- SearchEngine::savedPageIndex() gets called also when indexing multiple pages.
+
 ## [0.25.1] - 2020-07-16
 
 ### Fixed

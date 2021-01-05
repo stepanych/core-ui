@@ -27,7 +27,7 @@ class TracyDebugger extends WireData implements Module, ConfigurableModule {
             'summary' => __('Tracy debugger from Nette with several PW specific custom tools.', __FILE__),
             'author' => 'Adrian Jones',
             'href' => 'https://processwire.com/talk/topic/12208-tracy-debugger/',
-            'version' => '4.21.20',
+            'version' => '4.21.38',
             'autoload' => 9999, // in PW 3.0.114+ higher numbers are loaded first - we want Tracy first
             'singular' => true,
             'requires'  => 'ProcessWire>=2.7.2, PHP>=5.4.4',
@@ -108,6 +108,8 @@ class TracyDebugger extends WireData implements Module, ConfigurableModule {
         'pagePermissions' => 'Page Permissions',
         'languageInfo' => 'Language Info',
         'templateInfo' => 'Template Info',
+        'templateCode' => 'Template Code',
+        'templateExportCode' => 'Template Export Code',
         'fieldsListValues' => 'Field List & Values',
         'serverRequest' => 'Server Request',
         'inputGet' => 'Input GET',
@@ -140,6 +142,7 @@ class TracyDebugger extends WireData implements Module, ConfigurableModule {
         'iterator' => 'Iterator',
         'fullObject' => 'Full Object'
     );
+    public static $externalPanels = array();
     public static $allPanels = array(
         'adminTools' => 'Admin Tools',
         'adminer' => 'Adminer',
@@ -316,8 +319,25 @@ class TracyDebugger extends WireData implements Module, ConfigurableModule {
      */
     public function init() {
 
+        $externalPanelPaths = glob($this->wire('config')->paths->root.'/site/modules/*/TracyPanels/*.php');
+        foreach($externalPanelPaths as $panelPath) {
+            $path_parts = pathinfo($panelPath);
+            $panelName = lcfirst($path_parts['filename']);
+            static::$externalPanels[$panelName] = $panelPath;
+            static::$allPanels[$panelName] = implode(' ', preg_split('/(?=[A-Z])/', $path_parts['filename']));
+            ksort(static::$allPanels);
+        }
+
         // load Tracy files and our helper files
-        $tracyVersion = version_compare(PHP_VERSION, '7.1.0', '>=') ? '2.7.x' : '2.5.x';
+        if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
+            $tracyVersion = '2.8.x';
+        }
+        elseif(version_compare(PHP_VERSION, '7.1.0', '>=')) {
+            $tracyVersion = '2.7.x';
+        }
+        else {
+            $tracyVersion = '2.5.x';
+        }
         require_once __DIR__ . '/tracy-'.$tracyVersion.'/src/tracy.php';
         require_once __DIR__ . '/includes/TD.php';
         if($this->data['enableShortcutMethods']) {
@@ -1102,6 +1122,7 @@ class TracyDebugger extends WireData implements Module, ConfigurableModule {
                             toggleli.setAttribute("id", "hide-button");
                             toggleli.setAttribute("title", "Hide Tracy");
                             toggleli.addEventListener("click", function() {
+                                document.body.classList.remove("has-tracy-debugbar");
                                 document.getElementById("tracy-debug").style.display = "none";
                                 document.getElementById("tracy-show-button").style.display = "block";
                                 document.cookie = "tracyHidden=1; path=/";
@@ -1117,6 +1138,7 @@ class TracyDebugger extends WireData implements Module, ConfigurableModule {
                         document.getElementById("tracy-debug").style.display = "block";
                         document.getElementById("tracy-show-button").style.display = "none";
                         window.Tracy.Debug.bar.restorePosition();
+                        document.body.classList.add("has-tracy-debugbar");
                         document.cookie = "tracyHidden=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
                         document.cookie = "tracyShow=1; path=/";
                     }
@@ -1164,6 +1186,7 @@ class TracyDebugger extends WireData implements Module, ConfigurableModule {
                 if($this->data['hideDebugBar'] && $this->showServerTypeIndicator() && in_array('custom', $this->data['styleAdminType']) && !$this->wire('input')->cookie->tracyShow) {
                     // hide server type indicator bar if debug bar is hidden by default
                     Debugger::$customJsStr .= 'document.body.classList.add("tracyHidden");';
+                    Debugger::$customJsStr .= 'document.body.classList.remove("has-tracy-debugbar");';
                 }
 
                 // remove localStorage items to prevent the panel from staying open
@@ -1184,6 +1207,10 @@ class TracyDebugger extends WireData implements Module, ConfigurableModule {
                     Debugger::$customJsStr .= '
                         localStorage.removeItem("tracy-debug-panel-DumpsRecorderPanel");
                     ';
+                }
+
+                if(!$this->wire('input')->cookie->tracyHidden) {
+                    Debugger::$customJsStr .= 'document.body.classList.add("has-tracy-debugbar");';
                 }
 
             }
@@ -1523,7 +1550,13 @@ class TracyDebugger extends WireData implements Module, ConfigurableModule {
             if(!empty(static::$restrictedUserDisabledPanels) && in_array($panel, static::$restrictedUserDisabledPanels)) continue;
 
             $panelName = ucfirst($panel).'Panel';
-            require_once __DIR__ . '/panels/'.$panelName.'.php';
+            if(file_exists(__DIR__ . '/panels/'.$panelName.'.php')) {
+                require_once __DIR__ . '/panels/'.$panelName.'.php';
+            }
+            else {
+                // external panels
+                include_once static::$externalPanels[$panel];
+            }
             switch($panel) {
                 case 'performance':
                     break;
@@ -4059,6 +4092,18 @@ class TracyDebugger extends WireData implements Module, ConfigurableModule {
             }
 
         });
+
+        foreach(static::$externalPanels as $name => $path) {
+            $className = ucfirst($name) . 'Panel';
+            if(!class_exists($className)) {
+                include_once $path;
+            }
+            $externalPanel = new $className;
+            if(method_exists($externalPanel, 'addSettings')) {
+                $externalPanelSettings = $externalPanel->addSettings();
+                $wrapper->add($externalPanelSettings);
+            }
+        }
 
         return $wrapper;
 

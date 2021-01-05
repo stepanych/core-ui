@@ -14,7 +14,7 @@
  *  @param string|bool $fit_img - add uk-width-1-1 class to the image
  *  Sources:
  *  @param array $source - add additional sources
- *  @example $source = ["my-image.jpg" => "max-width: 600"];
+ *  @example $source = ["max-width: 600" => "my-image.jpg";
  */
 function picture($img, $options = [], $source = []) {
 
@@ -51,7 +51,7 @@ function picture($img, $options = [], $source = []) {
 
   // add additional sources if exists
   if(count($source)) {
-    foreach($source as $srcset => $media) {
+    foreach($source as $media => $srcset) {
       $html .= "<source media='($media)' srcset='$srcset' />";
     }
   }

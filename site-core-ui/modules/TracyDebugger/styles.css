@@ -237,12 +237,23 @@ body.tracyHidden:before {
     opacity: initial !important;
 }
 
+#tracy-debug input,
+#tracy-debug select,
+#tracy-debug textarea {
+    -moz-appearance: auto !important;
+    -webkit-appearance: auto !important;
+    -ms-appearance: auto !important;
+    appearance: auto !important;
+}
+
 #tracy-debug input[type="checkbox"],
 #tracy-debug input[type="radio"] {
     vertical-align: middle !important;
     height: 12px !important;
     width: initial !important;
     opacity: initial !important;
+    appearance: auto !important;
+    float: none !important;
 }
 
 #tracy-debug label {
@@ -442,16 +453,35 @@ button.tracyCopyBtn:focus {
     font-family: monospace !important;
 }
 
-pre.tracy-dump {
+pre.tracy-dump, .tracy-echo {
     background: transparent !important;
-    padding: .4em 2em .4em .7em !important;
     margin: 0 0 10px 0 !important;
     border: 1px solid #D2D2D2 !important;
     border-radius: 0 !important;
 }
 
+pre.tracy-dump {
+    padding: .4em 2em 2em .7em !important;
+}
+
+.tracy-echo {
+    padding: .7em !important;
+}
+
 td pre.tracy-dump {
     margin: 0 !important;
+}
+
+#tracy-debug .tracy-dump {
+    position: relative;
+}
+
+.tracy-dump-location {
+    float: none !important;
+    position: absolute !important;
+    bottom: 0px !important;
+    display: block !important;
+    margin: 5px 0 5px 0 !important;
 }
 
 .tracy-inner td {

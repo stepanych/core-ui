@@ -12,7 +12,9 @@ include('./vendor/_head.php');?>
       ]);
     ?>
 
-    <?= $page->body ?>
+    <?php
+      echo $page->body;
+    ?>
 
   </div>
 </div>

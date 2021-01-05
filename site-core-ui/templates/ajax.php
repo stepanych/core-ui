@@ -7,7 +7,7 @@
  *  All files from this folder will be included here.
  */
 
-$ajax_dir = $config->paths->templates . "vendor/ajax/";
+$ajax_dir = $config->paths->templates . "ajax/";
 if(is_dir($ajax_dir)) {
   $ajax_files = scandir($ajax_dir);
   foreach($ajax_files as $php) {

@@ -5,7 +5,7 @@
  *
  */
 $cms_array = [
-  "isMultilang" => $helper->isMultiLang(),
+  "isMultilang" => setting("isMultiLang"),
   "ajaxUrl" => $pages->get("template=ajax")->httpURL,
 ];
 
