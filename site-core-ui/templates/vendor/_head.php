@@ -47,6 +47,6 @@
 
     <div id="header" class="uk-visible@l">
     	<?php
-    		render("layout/header.php");
+    		render("layout/navbar.php");
     	?>
     </div>
