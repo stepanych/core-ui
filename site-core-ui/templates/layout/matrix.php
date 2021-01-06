@@ -1,10 +1,14 @@
 <?php namespace ProcessWire;
-
+$i = 1;
 $matrix = !empty($matrix) ? $matrix : $page->matrix;
 
 if(!empty($matrix) && $matrix->count) {
 
   foreach($matrix as $item) {
+
+    $n = $i++;
+
+    echo "<div id='section-{$n}' class='uk-margin-medium'>";
 
     if($item->type == "widget") {
 
@@ -23,6 +27,8 @@ if(!empty($matrix) && $matrix->count) {
       echo $item->body;
 
     }
+
+    echo "</div>";
 
   }
 
