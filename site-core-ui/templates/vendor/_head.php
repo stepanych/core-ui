@@ -24,6 +24,12 @@
     echo $settings->scripts_in_head;
 	?>
 
+  <?php if($config->debug) : ?>
+    <script>
+      console.log(cms);
+    </script>
+  <?php endif;?>
+
 
 </head>
 

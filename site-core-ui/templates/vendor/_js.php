@@ -5,8 +5,10 @@
  *
  */
 $cms_array = [
+  "debug" => $config->debug,
   "isMultilang" => setting("isMultiLang"),
   "ajaxUrl" => $pages->get("template=ajax")->httpURL,
+  "isWebp" => setting("is_webp"),
 ];
 
 ?>
