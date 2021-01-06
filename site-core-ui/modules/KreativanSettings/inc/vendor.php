@@ -11,38 +11,39 @@ $form->method = "post";
 $form->attr("id+name","settings-form");
 $form->attr("enctype", "multipart/form-data");
 
-$f = $this->wire('modules')->get("InputfieldText");
+$f = $this->wire('modules')->get("InputfieldMarkup");
 $f->attr('name', 'project');
 $f->label = 'Project';
 $f->value = $this_module->vendor("project");
 $f->columnWidth = "100%";
-$f->collapsed = 7;
 $form->add($f);
 
 if($this_module->vendor("developer") != "") {
-  $f = $this->wire('modules')->get("InputfieldText");
+  $f = $this->wire('modules')->get("InputfieldMarkup");
   $f->attr('name', 'developer');
   $f->label = 'Developer';
   $f->value = $this_module->vendor("developer");
   $f->columnWidth = "100%";
-  $f->collapsed = 7;
   $form->add($f);
+}
 
+if($this_module->vendor("website") != "") {
   $f = $this->wire('modules')->get("InputfieldMarkup");
   $f->attr('name', 'website');
   $f->label = 'Website';
-  $f->value = "<a href='{$this_module->vendor('website')}'>{$this_module->vendor('website')}</a>";
+  $f->value = "<a href='{$this_module->vendor("website")}'>{$this_module->vendor("website")}</a>";
   $f->columnWidth = "100%";
   $form->add($f);
 }
 
-$f = $this->wire('modules')->get("InputfieldText");
-$f->attr('name', 'cms');
-$f->label = 'CMS';
-$f->value = $this_module->vendor("cms");
-$f->columnWidth = "100%";
-$f->collapsed = 7;
-$form->add($f);
+if($this_module->vendor("email") && $this_module->vendor("email") != "") {
+  $f = $this->wire('modules')->get("InputfieldMarkup");
+  $f->attr('name', 'email');
+  $f->label = 'Email';
+  $f->value = $this_module->vendor("email");
+  $f->columnWidth = "100%";
+  $form->add($f);
+}
 
 /* ----------------------------------------------------------------
   Submit

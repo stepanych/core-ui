@@ -1,6 +1,6 @@
 {
   "project": "Core UI Master",
-  "cms": "ProcessWire",
   "developer" : "Kreativan",
-  "website": "kreativan.net"
+  "website": "http://www.kreativan.net",
+  "email": "kreativan@outlook.com"
 }

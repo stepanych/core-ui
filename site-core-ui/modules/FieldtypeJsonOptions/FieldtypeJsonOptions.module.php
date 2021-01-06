@@ -30,7 +30,7 @@ class FieldtypeJsonOptions extends Fieldtype {
 		$f->placeholder = "Folder path...";
 		$f->required = true;
 		$f->columnWidth = "100%";
-		$f->description = "eg: `site/templates/vendor/lib/options/my-file.json`";
+		$f->description = "eg: `site/templates/vendor/options/my-file.json`";
 		$inputfields->add($f);
 
 		$f = $this->wire('modules')->get("InputfieldRadios");
