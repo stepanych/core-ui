@@ -50,5 +50,3 @@
     		render("layout/header.php");
     	?>
     </div>
-
-    <div id="main" uk-height-viewport="expand: true">

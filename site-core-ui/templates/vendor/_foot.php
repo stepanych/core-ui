@@ -1,7 +1,5 @@
 <?php namespace ProcessWire; ?>
 
-	</div> <!-- main end -->
-
 	<footer id="footer">
 		<?php
 			render("layout/footer.php");
