@@ -28,6 +28,7 @@ $settings = $modules->get("KreativanSettings");
 setting([
   "lang" => $settings->default_lang,
   "isMultiLang" => $helper->isMultiLang(),
+  "is_webp" => (strpos($_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false) ? true : false,
 ]);
 
 //
