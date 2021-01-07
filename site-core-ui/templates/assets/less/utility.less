@@ -45,10 +45,6 @@
 
 }
 
-.tm-bg-remove {
-  background: none !important;
-}
-
 // Links
 // ========================================================================
 .tm-link-none {
@@ -114,17 +110,8 @@
 
 }
 
-// Media
-// ========================================================================
-
-.tm-object-fit {
-  width:100% !important;
-  height:100% !important;
-  object-fit:cover;
-}
-
 // Text
-// ========================================================================
+// =======================================================================
 
 .tm-font {
   font-family: @base-heading-font-family;
@@ -132,10 +119,6 @@
 
 .tm-font-base {
   font-family: @global-font-family;
-}
-
-.tm-font-hand {
-  font-family: @tm-font-hand;
 }
 
 .tm-text-deco-none {
@@ -146,68 +129,16 @@
   color: white;
 }
 
-// List
-// ========================================================================
-
-.tm-list-reset {
-  list-style: none;
-  padding:0;
-  margin:0;
+.tm-text-300 {
+  font-weight: 300;
 }
 
-.tm-line-height-none {
-  line-height: 0 !important;
+.tm-text-400 {
+  font-weight: 400;
 }
 
-// Border
-// ========================================================================
-.tm-border-radius {
-  border-radius: @tm-border-radius;
-}
-
-.tm-border {
-  border: 1px solid @global-border;
-}
-
-.tm-border-left {
-  border-left: 1px solid @global-border;
-}
-
-.tm-border-right {
-  border-right: 1px solid @global-border;
-}
-
-.tm-border-top {
-  border-top: 1px solid @global-border;
-}
-
-.tm-border-bottom {
-  border-bottom: 1px solid @global-border;
-}
-
-.tm-border-2x {border-width: 2px !important;}
-.tm-border-3x {border-width: 3px !important;}
-.tm-border-5x {border-width: 3px !important;}
-
-.tm-border-primary {
-  border-color: @global-primary-background;
-}
-
-.tm-border-secondary {
-  border-color: @global-secondary-background;
-}
-
-.uk-light {
-  [class*=tm-border] {
-    border-color: fade(white, 30%) !important;
-  }
-}
-
-
-// Animation
-// ========================================================================
-.tm-animation-03 {
-  animation-duration: 0.3s !important;
+.tm-text-700 {
+  font-weight: 700;
 }
 
 // z-index
@@ -217,49 +148,3 @@
 .z-index-9 {z-index: 9;}
 .z-index-99 {z-index: 99;}
 .z-index-999 {z-index: 999;}
-
-
-// Mobile & Tablet
-// ========================================================================
-
-@media(max-width: @breakpoint-small) {
-
-  .tm-no-space\@s {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .tm-no-margin\@s {
-    margin: 0 !important;
-  }
-
-  .tm-no-margin-top\@s {
-    margin: 0 !important;
-  }
-
-  .tm-no-margin-bottom\@s {
-    margin: 0 !important;
-  }
-
-}
-
-@media(max-width: @breakpoint-medium) {
-
-  .tm-no-space\@m {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .tm-no-margin\@m {
-    margin: 0 !important;
-  }
-
-  .tm-no-margin-top\@m {
-    margin: 0 !important;
-  }
-
-  .tm-no-margin-bottom\@m {
-    margin: 0 !important;
-  }
-
-}
