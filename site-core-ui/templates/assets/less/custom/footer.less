@@ -3,33 +3,10 @@
 ==================================================================== */
 
 #footer {
-
-  .footer {
-    background: @tm-footer-bg;
-
-    & when (@tm-footer-color-mode = light) {
-      .uk-light();
-    }
-
-    & when (@tm-footer-color-mode = light) {
-      .uk-dark();
-    }
-
-  }
-
-  .copyright {
-
-    padding: 15px 0;
-    background: @tm-copyright-bg;
-    font-size:1rem;
-
-    & when (@tm-copyright-color-mode = light) {
-      .uk-light();
-      color: @global-muted-color;
-    }
-
-  }
-
+  padding: 20px 0;
+  background: @global-muted-background;
+  font-size: 0.9rem;
+  color: @global-muted-color;
 }
 
 .uk-totop {
